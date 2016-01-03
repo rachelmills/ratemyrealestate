@@ -19,7 +19,6 @@
 	</c:when>
 	<c:when test="${agentList.size gt 0}">
 		<div class="panel panel-default">
-			<!-- Default panel contents -->
 			<c:choose>
 				<c:when test="${agentname eq ''}">
 					<div class="panel-heading">All agents</div>
@@ -72,8 +71,10 @@
  --%>
 			</ul>
 		</nav>
-		<p>Please add an agent if the one you are searching for is not
-			listed.</p>
+		<div class="panel panel-default">
+			<div class="panel-heading">Please add an agent if the one you are searching for is not
+			listed.</div>
+		</div>
 	</c:when>
 </c:choose>
 <a href="${pageContext.request.contextPath}/createagent">Add agent</a>

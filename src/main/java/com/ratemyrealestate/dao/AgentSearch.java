@@ -8,8 +8,6 @@ public class AgentSearch {
 
 	private int id;
 
-	@NotNull
-	@NotBlank
 	private String agentname;
 
 	public AgentSearch() {

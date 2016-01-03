@@ -42,27 +42,17 @@ public class AgentsController {
 		agentsService.createAgent(agent);
 		return "agentcreated";
 	}
-
-//	@RequestMapping(value = "/search")
-//	public String search(@RequestParam(value = "agentName") String name, @Valid AgentSearch agent, BindingResult result,
-//			Model model) {
-//
-//		if (result.hasErrors()) {
-//			return "home";
-//		}
-//
-//		List<Agent> agents = agentsService.search(name);
-//
-//		model.addAttribute("agents", agents);
-//		model.addAttribute("agentName", name);
-//		return "agents";
-//	}
-//	
 	
 	@RequestMapping(value="/search/{pageNumber}", method=RequestMethod.GET)
 	public String search(Model model, @PageableDefault(size=5) Pageable pageable, @PathVariable("pageNumber") Integer pageNumber, 
 			@RequestParam(value="agentname", required=false) String agentName, @Valid AgentSearch agent, BindingResult result) {
+		
+		if (result.hasErrors()) {
+			return "home";
+		}
+		
 		PageRequest page = new PageRequest(pageNumber, pageable.getPageSize());
+		
 		Page<Agent> agents;
 		if (agentName.equals("")) {
 			agents = agentRepository.findAll(page);	
@@ -77,19 +67,8 @@ public class AgentsController {
 		return "agents";
 	}
 
-
-	// @ModelAttribute("agent")
-	// public Agent createAgent() {
-	//
-	// Agent agent = new Agent();
-	// agent.setAgentName("test");
-	// agent.setId(1);
-	// return agent;
-	// }
-
 	@Autowired
 	public void setAgentsService(AgentsService agentsService) {
 		this.agentsService = agentsService;
 	}
-
 }
