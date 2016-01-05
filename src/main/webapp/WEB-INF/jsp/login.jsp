@@ -1,4 +1,4 @@
-<%@include file="includes/header_old.jsp"%>
+<%@include file="includes/header.jsp"%>
 
 <div class="panel panel-primary">
 	<div class="panel-heading">
@@ -13,7 +13,7 @@
 			<div class="alert alert-danger">Invalid username and password.
 			</div>
 		</c:if>
-
+		
 		<c:if test="${param.logout != null}">
 			<div class="alert alert-danger">You have been logged out.</div>
 		</c:if>
@@ -35,7 +35,7 @@
 
 			<div class="form-group">
 				<label for="checkbox">Remember me?</label> <input class="login"
-					type='checkbox' name='_spring_security_remember_me'
+					type='checkbox' name='remember_me'
 					checked="checked" />
 			</div>
 			<button type="submit" class="btn-btn-primary">Sign in</button>
@@ -51,4 +51,4 @@
 		document.f.j_username.focus();
 	});
 </script>
-<%@include file="includes/footer_old.jsp"%>
+<%@include file="includes/footer.jsp"%>

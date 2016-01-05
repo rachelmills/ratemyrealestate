@@ -1,4 +1,4 @@
-<%@include file="includes/header_old.jsp"%>
+<%@include file="includes/header.jsp"%>
 
 <div class="panel panel-primary">
 	<div class="panel-heading">
@@ -22,12 +22,11 @@
 			action='${pageContext.request.contextPath}/docreateagent'
 			method='POST' commandName="agent">
 			<div class="form-group">
-				<form:label path="agentName">Agent Name</form:label> 
-				<form:input path="agentName" id="agentname" type="text" class="form-control" placeholder="Enter agent name"/>
+				<form:label path="agentname">Agent Name</form:label> 
+				<form:input path="agentname" id="agentname" type="text" class="form-control" placeholder="Enter agent name"/>
 				<p class="help-block">Enter the agent name.</p>
-				<form:errors path="agentName" cssClass="error"></form:errors>
+				<form:errors path="agentname" cssClass="error"></form:errors>
 			</div>
-
 			<div class="form-group">
 				<form:label path="suburb">Suburb</form:label>
 				<form:input path="suburb" type="text" id="suburb" class="form-control"/>
@@ -44,4 +43,4 @@
 		document.getElementById("agentname").focus();
 	});
 </script>
-<%@include file="includes/footer_old.jsp"%>
+<%@include file="includes/footer.jsp"%>

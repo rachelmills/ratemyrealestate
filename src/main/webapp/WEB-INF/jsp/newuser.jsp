@@ -1,4 +1,4 @@
-<%@include file="includes/header_old.jsp"%>
+<%@include file="includes/header.jsp"%>
 <%@include file="newuserscript.jsp"%>
 
 <div class="panel panel-primary">
@@ -41,4 +41,4 @@
 	</div>
 	
 </div>
-<%@include file="includes/footer_old.jsp"%>
+<%@include file="includes/footer.jsp"%>

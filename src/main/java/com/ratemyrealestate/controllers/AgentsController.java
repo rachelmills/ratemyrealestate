@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,7 +52,7 @@ public class AgentsController {
 			return "home";
 		}
 		
-		PageRequest page = new PageRequest(pageNumber, pageable.getPageSize());
+		PageRequest page = new PageRequest(pageNumber, pageable.getPageSize(), Direction.ASC, "agentname");
 		
 		Page<Agent> agents;
 		if (agentName.equals("")) {

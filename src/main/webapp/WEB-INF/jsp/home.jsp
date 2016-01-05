@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-<%@include file="includes/header_old.jsp"%>
+<%@include file="includes/header.jsp"%>
 
 <div class="well">
 	<p id="justify">Rate My Rental Agent is a simple website to enable
@@ -49,4 +49,4 @@
 
 	$(document).ready(onLoad);
 </script>
-<%@include file="includes/footer_old.jsp"%>
+<%@include file="includes/footer.jsp"%>

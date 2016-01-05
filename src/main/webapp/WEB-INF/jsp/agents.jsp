@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-<%@include file="includes/header_old.jsp"%>
+<%@include file="includes/header.jsp"%>
 
 <div class="panel panel-primary">
 	<div class="panel-heading">Search results</div>
@@ -71,11 +71,7 @@
  --%>
 			</ul>
 		</nav>
-		<div class="panel panel-default">
-			<div class="panel-heading">Please add an agent if the one you are searching for is not
-			listed.</div>
-		</div>
 	</c:when>
 </c:choose>
 <a href="${pageContext.request.contextPath}/createagent">Add agent</a>
-<%@include file="includes/footer_old.jsp"%>
+<%@include file="includes/footer.jsp"%>

@@ -1,4 +1,4 @@
-<%@include file="includes/header_old.jsp"%>
+<%@include file="includes/header.jsp"%>
 
 <div class="well">
 	<p>According to the Australian Bureau of Statistic (ABS), almost
@@ -18,4 +18,4 @@
 		with rental agencies.</p>
 </div>
 
-<%@include file="includes/footer_old.jsp"%>
+<%@include file="includes/footer.jsp"%>

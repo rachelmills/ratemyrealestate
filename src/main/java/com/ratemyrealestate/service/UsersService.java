@@ -1,6 +1,7 @@
 package com.ratemyrealestate.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,6 +20,9 @@ public class UsersService implements UserDetailsService {
 	@Autowired
 	public UserRepository userRepository;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	private UsersDAO usersDAO;
 
 	@Autowired
@@ -35,7 +39,7 @@ public class UsersService implements UserDetailsService {
 //	}
 //
 	public void createUser(SignupForm signupForm) {
-		User user = new User(signupForm.getEmail(), signupForm.getPassword(), true, "");
+		User user = new User(signupForm.getEmail(), passwordEncoder.encode(signupForm.getPassword()), true, "");
 		user.setEnabled(true);
 		user.setAuthority("ROLE_USER");
 		usersDAO.create(user);
