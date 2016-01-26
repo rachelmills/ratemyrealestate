@@ -4,10 +4,6 @@
 	<div class="panel-heading">
 		<h3 class="panel-title">Add estate agent</h3>
 	</div>
-	<c:if test="${param.error != null}">
-		<span class="loginerror"> Sign in failed. Please re-enter your
-			username and password. </span>
-	</c:if>
 	<div class="panel-body">
 		<c:if test="${param.error != null}">
 			<div class="alert alert-danger">Invalid username and password.

@@ -2,11 +2,6 @@ form .error {
 	color: #A94442;
 }
 
-body {
-	/* background-color: #D1FAFF; */
-	
-}
-
 img {
 	max-height: 90px;
 	max-width: auto;
@@ -36,7 +31,7 @@ h1 {
 	background-color: #D1FAFF;
 }
 
-.panel-primary >.panel-heading {
+.panel-primary>.panel-heading {
 	background-color: #157145;
 	border-color: #157145;
 	/* color: #fff; */
@@ -50,7 +45,7 @@ h1 {
 	background-color: #157145
 }
 
-.panel-primary >.panel-heading {
+.panel-primary>.panel-heading {
 	background-image: linear-gradient(to bottom, #157145 0px, #157145 100%);
 	background-repeat: repeat-x;
 }
@@ -69,7 +64,7 @@ h1 {
 }
 
 a {
-	color: #57A773;
+	color: #157145;
 	text-decoration: none;
 }
 
@@ -82,8 +77,19 @@ a:focus, a:hover {
 	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;	
-	border: 1px solid #57A773;
+	margin-top: 40px;
+	border: 1px solid #157145;
+}
+
+.well.well-rate {
+	background-color: white;
+	width: 50%;
+	border: 2px solid #157145;
+}
+
+.well h3 {
+	text-align: center;	
+	margin: 5px;
 }
 
 .well-left {
@@ -96,6 +102,10 @@ a:focus, a:hover {
 	padding: 0px;
 }
 
+.radio {
+	padding: 5px;
+}
+
 .form-control {
 	width: 30%;
 }
@@ -106,15 +116,52 @@ nav {
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
-.pagination > li > a.disabled {
-   pointer-events: none;
-   cursor: default;
+
+.pagination>li>a.disabled {
+	pointer-events: none;
+	cursor: default;
 }
 
-.pagination > li > a.enabled {
-	text-decoration: underline;	
+.pagination>li>a.enabled {
+	text-decoration: underline;
 }
 
 .pagination {
 	margin: 0px;
+}
+
+p.darkgreen {
+	color: #157145
+}
+
+.container-fluid {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+/* sticky footer css */
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-botton: 50px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 50px;
+	background-color: #f5f5f5;
+ 	border-top: 2px solid #157145;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.glyphicon {
+	margin-left: 5px;
+	margin-right: 15px;
 }

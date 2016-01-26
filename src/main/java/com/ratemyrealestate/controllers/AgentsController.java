@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ratemyrealestate.dao.AgentSearch;
 import com.ratemyrealestate.entities.Agent;
-import com.ratemyrealestate.repositories.AgentRepository;
 import com.ratemyrealestate.service.AgentsService;
 
 @Controller
@@ -26,9 +25,6 @@ public class AgentsController {
 
 	private AgentsService agentsService;
 	
-	@Autowired
-	private AgentRepository agentRepository;
-
 	@RequestMapping("/createagent")
 	public String createNewAgent(Model model) {
 		model.addAttribute("agent", new Agent());
@@ -41,6 +37,7 @@ public class AgentsController {
 			return "createagent";
 		}
 		agentsService.createAgent(agent);
+		model.addAttribute("agent", agent);
 		return "agentcreated";
 	}
 	
@@ -55,10 +52,10 @@ public class AgentsController {
 		PageRequest page = new PageRequest(pageNumber, pageable.getPageSize(), Direction.ASC, "agentname");
 		
 		Page<Agent> agents;
-		if (agentName.equals("")) {
-			agents = agentRepository.findAll(page);	
+		if (null == agentName || agentName.equals("")) {
+			agents = agentsService.findAll(page);	
 		} else {
-			agents = agentRepository.findAllByAgentnameContainingIgnoringCase(agentName, page);
+			agents = agentsService.findAllByAgentnameContainingIgnoringCase(agentName, page);
 		}
 		
 		model.addAttribute("agentList", agents);

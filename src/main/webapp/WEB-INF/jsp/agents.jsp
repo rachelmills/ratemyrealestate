@@ -20,7 +20,7 @@
 	<c:when test="${agentList.size gt 0}">
 		<div class="panel panel-default">
 			<c:choose>
-				<c:when test="${agentname eq ''}">
+				<c:when test="${agentname eq '' or agentname eq null}">
 					<div class="panel-heading">All agents</div>
 				</c:when>
 				<c:otherwise>
@@ -39,17 +39,19 @@
 						<td><c:out value="${agent.agentname}"></c:out></td>
 						<td><c:out value="${agent.suburb}"></c:out></td>
 						<td id="other"><a
-							href="${pageContext.request.contextPath}/ratings?agentid=${agent.id}">View
-								ratings</a></td>
+							href="${pageContext.request.contextPath}/ratings?agentid=${agent.id}">View ratings</a></td>
 						<td id="other"><a
-							href="${pageContext.request.contextPath}/createrating?agentid=${agent.id}">Rate
-								this agent</a></td>
+							href="${pageContext.request.contextPath}/createrating?agentid=${agent.id}">Rate this agent</a></td>
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
 		<div class="well well-left">
-			<p>Page ${pageable.pageNumber+1} of ${agentList.totalPages}</p>
+			<p>Please add an agent if the one your are searching for is not
+				listed.</p>
+		</div>
+		<div class="well well-left">
+			<p class="darkgreen">Page ${pageable.pageNumber+1} of ${agentList.totalPages}</p>
 		</div>
 
 		<nav>
@@ -62,16 +64,8 @@
 					class="${pageable.next().pageNumber >= agentList.totalPages ? 'disabled' : 'enabled'}"
 					href="${pageContext.request.contextPath}/search/${pageable.next().pageNumber}?agentname=${agentname}"
 					aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
-				<%--			<li><a href="${pageContext.request.contextPath}/search">1</a></li>
-				<li><a href="${pageContext.request.contextPath}/search">2</a></li>
-				<li><a href="${pageContext.request.contextPath}/search">3</a></li>
-				<li><a href="${pageContext.request.contextPath}/search">4</a></li>
-				<li><a href="${pageContext.request.contextPath}/search">5</a></li>
-				<li><a href="${pageContext.request.contextPath}/search" aria-label="Next"> <span aria-hidden="true">&raquo;</span>%				</a></li>
- --%>
 			</ul>
 		</nav>
 	</c:when>
 </c:choose>
-<a href="${pageContext.request.contextPath}/createagent">Add agent</a>
 <%@include file="includes/footer.jsp"%>

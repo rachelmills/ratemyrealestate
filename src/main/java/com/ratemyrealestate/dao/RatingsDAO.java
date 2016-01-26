@@ -2,11 +2,16 @@ package com.ratemyrealestate.dao;
 
 import java.util.List;
 
+import javax.validation.ConstraintViolationException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ratemyrealestate.entities.Agent;
 import com.ratemyrealestate.entities.Rating;
 import com.ratemyrealestate.entities.User;
 import com.ratemyrealestate.repositories.RatingRepository;
@@ -19,58 +24,30 @@ public class RatingsDAO {
 	@Autowired
 	private RatingRepository ratingRepository;
 
-//	@Autowired
-//	private SessionFactory sessionFactory;
-//
-//	public Session session() {
-//		return sessionFactory.getCurrentSession();
-//	}
-//
 	public List<Rating> getRatings() {
 		return ratingRepository.findAll();  // add criteria for enabled users only?
 	}
 	
-//	public Rating getRatingById(int ratingId) {
-//		Criteria crit = session().createCriteria(Rating.class);
-//		crit.add(Restrictions.idEq(ratingId));
-//		Rating rating = (Rating) crit.uniqueResult();
-//		return rating;
-//	}
-//
-//	public Rating getRating(int agentId, User user) {
-//		Criteria crit = session().createCriteria(Rating.class);
-//		crit.createAlias("user", "u");
-//		crit.createAlias("agent", "a");
-//		crit.add(Restrictions.eq("a.id", agentId));
-//		crit.add(Restrictions.eq("u.id", user.getId()));
-//		Rating rating = (Rating) crit.uniqueResult();
-//		return rating;
-//	}
-//
-//	@SuppressWarnings("unchecked")
-//	public List<Rating> getRatingsForAgent(int agentId) {
-//		Criteria crit = session().createCriteria(Rating.class);
-//		crit.createAlias("user", "u");
-//		crit.createAlias("agent", "a");
-//		crit.add(Restrictions.eq("u.enabled", true));
-//		crit.add(Restrictions.eq("a.id", agentId));
-//		return crit.list();
-//	}
-//
-	public List<Rating> getRatingsForUser(User user) {
-////		Criteria crit = session().createCriteria(Rating.class);
-////		crit.createAlias("user", "user");
-////		crit.add(Restrictions.eq("user.id", user.getId()));
-//		List<Rating> ratings = crit.list();
-//		return ratings;
-		return ratingRepository.findOneByUserId(user.getId());
+	public Rating getRating(Agent agent, User user) {
+		return ratingRepository.findOneByAgentAndUser(agent, user);
 	}
 
-//	public void saveOrUpdate(Rating rating) throws ConstraintViolationException {
-////		if (getRating(rating.getId()).)
-//		session().saveOrUpdate(rating);
-//	}
-//
+	public List<Rating> getRatingsForAgent(int agentId) {
+		return ratingRepository.findAllByAgentId(agentId);
+	}
+
+	public Page<Rating> getRatingsForUser(User user, Pageable page) {
+		return ratingRepository.findAllByUserId(user.getId(), page);
+	}
+	
+	public List<Rating> getRatingsForUser(User user) {
+		return ratingRepository.findAllByUserId(user.getId());
+	}
+
+	public void saveOrUpdate(Rating rating) throws ConstraintViolationException {
+		ratingRepository.save(rating);
+	}
+
 //	public boolean delete(int agentId, User user) {
 //		Criteria crit = session().createCriteria(Rating.class);
 //		crit.add(Restrictions.eq("agentID", agentId));
@@ -83,9 +60,8 @@ public class RatingsDAO {
 //		return query.executeUpdate() == 1;
 //	}
 //	
-//	public boolean ratingExistsForUserAndAgent(int agentId, User user) {
-//		return getRating(agentId, user) == null ? false : true;
-//	}
 
-
+	public boolean ratingExistsForUserAndAgent(Agent agent, User user) {
+		return getRating(agent, user) == null ? false : true;
+	}
 }

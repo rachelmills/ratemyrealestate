@@ -27,7 +27,7 @@ public class AgentsDAO {
 private AgentRepository agentRepository;
 
 	public Page<Agent> getAgents(int pageNumber) {
-		PageRequest requests = new PageRequest(0, 3);
+		PageRequest requests = new PageRequest(0, pageNumber);
 		return agentRepository.findAll(requests);
 	}
 
@@ -43,21 +43,16 @@ private AgentRepository agentRepository;
 //		session().delete(agent);
 //	}
 //
-//	public Agent getAgent(int id) {
-//		Criteria crit = session().createCriteria(Agent.class);
-//		crit.add(Restrictions.idEq(id));
-//		return (Agent) crit.uniqueResult();
-//	}
-//
-//	public String getAgentName(int agentId) {
-//		Query query = session().createQuery("select agentName from Agent where id = :id");
-//		query.setParameter("id", agentId);
-//		return (String) query.uniqueResult();
-//	}
-//
-	public List<Agent> search(String name) {
-//		return agentRepository.findAllByAgent_Name(name);
-		return agentRepository.findAll();
+	public Agent getAgent(int id) {
+		return agentRepository.findOne(id);
+	}
+
+	public Page<Agent> findAll(PageRequest page) {
+		return agentRepository.findAll(page);		
+	}
+
+	public Page<Agent> findAllByAgentName(String agentName, PageRequest page) {
+		return agentRepository.findAllByAgentnameContainingIgnoringCase(agentName, page);
 	}
 	
 //	public boolean exists(String agentName, String suburb) {

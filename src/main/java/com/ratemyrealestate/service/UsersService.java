@@ -30,14 +30,10 @@ public class UsersService implements UserDetailsService {
 		this.usersDAO = usersDAO;
 	}
 	
-//	public List<User> getCurrent() {
-//		return usersDAO.getAllUsers();
-//	}
-//	
-//	public User getUser(int userId) {
-//		return usersDAO.getUser(userId);
-//	}
-//
+	public User getUser(int userId) {
+		return usersDAO.getUser(userId);
+	}
+
 	public void createUser(SignupForm signupForm) {
 		User user = new User(signupForm.getEmail(), passwordEncoder.encode(signupForm.getPassword()), true, "");
 		user.setEnabled(true);

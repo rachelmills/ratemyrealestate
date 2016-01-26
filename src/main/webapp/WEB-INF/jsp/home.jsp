@@ -11,24 +11,10 @@
 	<p>** Simply search for an agent using the box below. Then follow
 		the links to view previous ratings or add your own rating. **</p>
 </div>
-<div id="main">
-	<sec:authorize access="isAuthenticated()">
-		<a href="<c:url value="/getRatings"></c:url>">Ratings (<span
+
+<a href="<c:url value="/getRatings"></c:url>">Ratings (<span
 			id=numberRatings>0</span>)
 		</a>
-	</sec:authorize>
-
-	<c:choose>
-		<c:when test="${hasRatings}">
-			<div id="smallbox">
-				<p>
-					View and edit your ratings&nbsp;&nbsp;<a
-						href="<c:url value="/userratings?userid=${userid}"/>">here</a>
-				</p>
-			</div>
-		</c:when>
-	</c:choose>
-</div>
 
 <script type="text/javascript">
 	/* this function will be called when json data has been downloaded from above url */

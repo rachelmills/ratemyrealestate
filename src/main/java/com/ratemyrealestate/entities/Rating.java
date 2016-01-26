@@ -7,11 +7,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
 
 // this annotation is to tell hibernate this is to be considered as a bean, 
 //and which table to map to with primary key
 @Entity
-@Table(name="rating")
+@Table(name="rating", uniqueConstraints=@UniqueConstraint(columnNames={"userID", "agentID"}))
 public class Rating {
 
 	@Id
@@ -23,10 +25,12 @@ public class Rating {
 	// tell hibernate this is a many to one relationship and say what join column is
 	@ManyToOne
 	@JoinColumn(name="userID")
+	@NotNull
 	private User user;
 
 	@ManyToOne
 	@JoinColumn(name="agentID")
+	@NotNull
 	private Agent agent;
 	
 	@Transient

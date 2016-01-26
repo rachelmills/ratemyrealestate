@@ -1,12 +1,11 @@
 @CHARSET "US-ASCII";
 
 html,body {
-	height: 100%;
-	margin: auto;
+/* 	height: 100%; */
+	/* margin: auto; */
 	padding: 0;
 	width: 100%;
 	font-family: Soho Gothic W01 Medium, sans-serif;
-	/* font-family: Verdana, Arial, Helvetica, sans-serif; */
 }
 
 #container {
@@ -373,17 +372,17 @@ html,body {
 	width: 400px;
 }
 
-#footer {
+/* #footer {
 	height: 45px;
 	border-top: 2px solid #2ecc71;
 	text-align: center;
 	font-size: 10px;
-	/* margin-top: 250px; */
+	margin-top: 250px;
 	position: fixed;
 	margin-bottom: 0;
 	width: 100%;
 }
-
+ */
 #main {
 	padding-bottom: 40px;
 }
@@ -465,15 +464,6 @@ a.commentlink {
 }
 
 @CHARSET "US-ASCII";
-
-html,body {
-	height: 100%;
-	margin: auto;
-	padding: 0;
-	width: 100%;
-	font-family: Soho Gothic W01 Medium, sans-serif;
-	/* font-family: Verdana, Arial, Helvetica, sans-serif; */
-}
 
 #container {
 	min-height: 100%;
@@ -802,39 +792,6 @@ html,body {
 	padding-bottom: 40px;
 }
 
-#wrapper #main #table {
-	border-collapse: separate;
-	border-spacing: 0 10px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#wrapper #main #table tr {
-	height: 30px;
-}
-
-#wrapper #main #table #first {
-	border-radius: 5px 0 0 5px;
-	margin-left: 20px;
-}
-
-#wrapper #main #table #last {
-	border-radius: 0 5px 5px 0;
-}
-
-#wrapper #main #table #other {
-	/* background-color: white; */
-	width: 110px;
-	font-size: small;
-	text-align: center;
-}
-
-#wrapper #main #table th {
-	width: 150px;
-	text-align: left;
-	border-radius: 5px;
-}
-
 span.loginerror {
 	color: red;
 }
@@ -882,4 +839,8 @@ span.alert {
 	display: block;
 	font-weight: bold;	
 	color: green;
+}
+
+p.darkgreen {
+	color: #157145
 }

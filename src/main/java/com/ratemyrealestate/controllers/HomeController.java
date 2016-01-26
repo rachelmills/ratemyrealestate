@@ -40,7 +40,7 @@ public class HomeController {
 
 		if (null != principal) {
 			hasRatings = ratingsService.hasRatings(principal.getName());
-			model.addAttribute("userid", usersService.getUser(principal.getName()));
+			model.addAttribute("userid", usersService.getUser(principal.getName()).getId());
 		}
 
 		model.addAttribute("agentSearch", new AgentSearch());

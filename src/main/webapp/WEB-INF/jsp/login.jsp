@@ -4,10 +4,6 @@
 	<div class="panel-heading">
 		<h3 class="panel-title">Please sign in</h3>
 	</div>
-	<c:if test="${param.error != null}">
-		<span class="loginerror"> Sign in failed. Please re-enter your
-			username and password. </span>
-	</c:if>
 	<div class="panel-body">
 		<c:if test="${param.error != null}">
 			<div class="alert alert-danger">Invalid username and password.
@@ -35,8 +31,7 @@
 
 			<div class="form-group">
 				<label for="checkbox">Remember me?</label> <input class="login"
-					type='checkbox' name='remember_me'
-					checked="checked" />
+					type='checkbox' name='remember-me'/>
 			</div>
 			<button type="submit" class="btn-btn-primary">Sign in</button>
 			
@@ -48,7 +43,7 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
-		document.f.j_username.focus();
+		document.getElementById("username").focus();
 	});
 </script>
 <%@include file="includes/footer.jsp"%>
