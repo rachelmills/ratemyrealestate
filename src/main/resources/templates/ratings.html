@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ratings</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">&copy; 2013 The Static Templates</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">Search results</div>
+</div>
+<!-- Table -->
+<table class="table">
+    <tr>
+        <th>Agency Name</th>
+        <th>Agency Suburb</th>
+        <div th:switch="${display}">
+           <th th:case='user'>Rating (out of 5)</th>
+            <th th:case="*">Average Rating (out of 5)</th>
+        </div>
+    </tr>
+    <div th:if="${display eq ('user')}">
+                <tr th:each="rating : ${ratings}">
+                    <td th:text="${rating.agent.agentname}"></td>
+                    <td th:text="${rating.agent.suburb}"></td>
+                    <td th:text="${rating.rating}"></td>
+                    <td><a th:href="@{/editrating(agentid=${rating.agent.id},userid=${id})}">Edit</a></td>
+                    <td><a th:href="@{/deleterating(agentid=${rating.agent.id},userid=${id})}">Delete</a></td>
+                </tr>
+    </div>
+    <div th:if="${display eq ('agent')}">
+        <tr>
+        <td th:text="${agentname}"></td>
+        <td th:text="${agentsuburb}"></td>
+        <td th:text="${averageRating}"></td>
+            <td th:if="${averageRating != null}" th:text="${#numbers.formatInteger(averageRating, 2)}"></td>
+        <!--<td><fmt:formatNumber value="${averageRating}"-->
+        <!--maxFractionDigits="2"></fmt:formatNumber>-->
+        <td><a
+        th:href="@{/createrating?agentid=${id}}">Rate this agent</a></td>
+        </tr>
+    </div>
+        <div th:if="${display eq ('all')}">
+
+            <tr th:each="rating : ${ratings}">
+                <td th:text="${rating.agent.agentname}"></td>
+                <td th:text="${rating.agent.suburb}"></td>
+                <td th:text="${rating.rating}"></td>
+                <td th:if="${rating.ratedByUser == null}">
+                    <a th:href="@{/createrating(agentid=${rating.agent.id})}">Rate this agent</a>
+                </td>
+                <td th:if="${!rating.ratedByUser}">
+                    <a th:href="@{/createrating(agentid=${rating.agent.id})}">Rate this agent</a>
+                </td>
+                <td th:if="${rating.ratedByUser}">Already rated</td>
+            </tr>
+        </div>
+</table>
+
+<!--<nav>-->
+<!--<ul class="pagination">-->
+<!--<li><a class="${pageable.hasPrevious() ? 'enabled' : 'disabled'}"-->
+<!--href="${pageContext.request.contextPath}/userratings/${pageable.previous().pageNumber}?userid=${userid}"-->
+<!--aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>-->
+<!--<li><a-->
+<!--class="${pageable.next().pageNumber >= agentList.totalPages ? 'disabled' : 'enabled'}"-->
+<!--href="${pageContext.request.contextPath}/userratings/${pageable.next().pageNumber}?userid=${userid}"-->
+<!--aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>-->
+<!--</ul>-->
+<!--</nav>-->
+
+<div th:replace="fragments/footer :: footer">&copy; 2013 The
+    Static Templates
+</div>
+</body>
+</html>

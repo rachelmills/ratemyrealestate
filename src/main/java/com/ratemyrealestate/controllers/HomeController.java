@@ -34,7 +34,7 @@ public class HomeController {
 	@Autowired
 	private SignupFormValidator signupFormValidator;
 
-	@RequestMapping("/")
+	@RequestMapping("/home")
 	public String showHome(Model model, Principal principal) {
 		boolean hasRatings = false;
 
@@ -58,7 +58,7 @@ public class HomeController {
 	protected void initSignupBinder(WebDataBinder binder) {
 		binder.setValidator(signupFormValidator);
 	}
-	
+
 //	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 //	public String signup(Model model) {
 //		model.addAttribute("name", "Puss");
@@ -74,7 +74,7 @@ public class HomeController {
 //		}
 ////		logger.info(signupForm.toString());
 //		usersService.createUser(signupForm);
-//		
+//
 ////		MyUtils.flash(redirectAttributes, "success", "signupSuccess");
 //		return "redirect:/";
 //	}

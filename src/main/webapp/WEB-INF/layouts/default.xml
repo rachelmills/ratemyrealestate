@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<definition name="ratings.base" template="/WEB-INF/templates/default.jsp">
+		<put-attribute name="includes" value=""></put-attribute>
+		<put-attribute name="title" value="Ratings Homepage"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp"></put-attribute>
+		<put-attribute name="subheader" value="/WEB-INF/tiles/subheader.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+		<put-attribute name="content" value=""></put-attribute>
+	</definition>
+
+	<definition name="home" extends="ratings.base">
+		<put-attribute name="title" value="Ratings Homepage"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/home.jsp"></put-attribute>
+	</definition>
+
+	<definition name="ratings" extends="ratings.base">
+		<put-attribute name="title" value="Current Ratings"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/ratings.jsp"></put-attribute>
+	</definition>
+
+	<definition name="login" extends="ratings.base">
+		<put-attribute name="title" value="Login"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/login.jsp"></put-attribute>
+	</definition>
+
+	<definition name="newuser" extends="ratings.base">
+		<put-attribute name="includes" value="/WEB-INF/tiles/newuserscript.jsp"></put-attribute>
+		<put-attribute name="title" value="Create User"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/newuser.jsp"></put-attribute>
+	</definition>
+
+	<definition name="about" extends="ratings.base">
+		<put-attribute name="title" value="About"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/about.jsp"></put-attribute>
+	</definition>
+
+	<definition name="admin" extends="ratings.base">
+		<put-attribute name="title" value="Admin"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/admin.jsp"></put-attribute>
+	</definition>
+
+	<definition name="agentcreated" extends="ratings.base">
+		<put-attribute name="title" value="Agent Created"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/agentcreated.jsp"></put-attribute>
+	</definition>
+
+	<definition name="agents" extends="ratings.base">
+		<put-attribute name="title" value="Agents"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/agents.jsp"></put-attribute>
+	</definition>
+
+	<definition name="createagent" extends="ratings.base">
+		<put-attribute name="title" value="Create Agent"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/createagent.jsp"></put-attribute>
+	</definition>
+
+	<definition name="createrating" extends="ratings.base">
+		<put-attribute name="title" value="Create Rating"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/createrating.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="denied" extends="ratings.base">
+		<put-attribute name="title" value="Access Denied"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/denied.jsp"></put-attribute>
+	</definition>	
+	
+	<definition name="error" extends="ratings.base">
+		<put-attribute name="title" value="Error"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/error.jsp"></put-attribute>
+	</definition>	
+
+	<definition name="loggedout" extends="ratings.base">
+		<put-attribute name="title" value="Logged Out"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/loggedout.jsp"></put-attribute>
+	</definition>	
+	
+	<definition name="ratingcreated" extends="ratings.base">
+		<put-attribute name="title" value="Rating Created"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/ratingcreated.jsp"></put-attribute>
+	</definition>	
+	
+	<definition name="usercreated" extends="ratings.base">
+		<put-attribute name="title" value="User Created"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/usercreated.jsp"></put-attribute>
+	</definition>	
+	
+	<definition name="createblogentry" extends="ratings.base">
+		<put-attribute name="title" value="Create Blog Entry"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/createblogentry.jsp"></put-attribute>
+	</definition>	
+	
+	 <definition name="ratingdeleted" extends="ratings.base">
+		<put-attribute name="title" value="Rating Deleted"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/ratingdeleted.jsp"></put-attribute>
+	 </definition>
+
+	 <definition name="ratings1" extends="ratings.base">
+		<put-attribute name="title" value="View Ratings"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/ratings1.jsp"></put-attribute>
+	 </definition>
+
+</tiles-definitions>

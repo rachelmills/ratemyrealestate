@@ -61,10 +61,9 @@ public class RatingsController {
 	@RequestMapping("/allratings")
 	public String showAllRatings(Model model, Principal principal) {
 		List<Rating> ratings = ratingsService.getRatings();
-		for (Rating rating : ratings) {
-			if (null != principal) {
-				rating.setRatedByUser(ratingsService.ratingExistsForUserAndAgent(rating.getAgent().getId(), usersService.getUser(principal.getName())));
-			}
+
+		if (null != principal) {
+			ratings.forEach(rating -> rating.setRatedByUser(ratingsService.ratingExistsForUserAndAgent(rating.getAgent().getId(), usersService.getUser(principal.getName()))));
 		}
 		model.addAttribute("ratings", ratings);
 		model.addAttribute("display", "all");	

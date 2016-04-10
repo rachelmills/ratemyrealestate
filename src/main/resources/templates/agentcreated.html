@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agent created</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">&copy; 2013 The Static Templates</div>
+
+<div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+    <p th:text="${agent.agentname} + ' has been created'"></p>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading"><a th:href="@{/createrating(agentid=${agent.id})}">
+        <p th:text="'Add a rating for ' + ${agent.agentname}"></p></a>
+</div>
+    </div>
+
+
+
+<div th:replace="fragments/footer :: footer">&copy; 2013 The
+    Static Templates
+</div>
+</body>
+</html>

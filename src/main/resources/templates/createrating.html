@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create rating</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">&copy; 2013 The Static Templates</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Add estate agent</h3>
+    </div>
+    <div class="panel-body">
+        <div th:if="${param.error != null}" class="alert alert-danger">Invalid username and password.
+        </div>
+        <div th:if="${param.logout != null}" class="alert alert-danger">You have been logged out.</div>
+
+        <form role="form"
+              th:action="@{/docreateagent}" method='POST' th:object="${agent}">
+            <div class="form-group">
+                <label for="agentname">Agent Name</label>
+                <input id="agentname" type="text" th:field="*{agentname}" class="form-control"
+                            placeholder="Enter agent name"/>
+                <p class="help-block">Enter the agent name.</p>
+                <errors path="agentname" cssClass="error"></errors>
+            </div>
+            <div class="form-group">
+                <label for="suburb">Suburb</label>
+                <input th:field="*{suburb}" type="text" id="suburb" class="form-control"/>
+                <errors cssClass="error" path="suburb"/>
+            </div>
+
+            <button type="submit" class="btn-btn-primary">Add agent</button>
+        </form>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		document.getElementById("agentname").focus();
+	});
+</script>
+
+<div th:replace="fragments/footer :: footer">&copy; 2013 The
+    Static Templates
+</div>
+</body>
+</html>

@@ -18,7 +18,6 @@ import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 
 @Configuration
-// @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);
@@ -45,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()   //users do not need to log in to access any of these urls
-		.antMatchers("/",
+		.antMatchers(
 					"/home",
 					"/error",
 					"/login",
@@ -69,8 +68,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http.formLogin()
 		.loginPage("/login")
-			.permitAll().and()
-			.rememberMe().key(rememberMeKey).rememberMeServices(rememberMeServices()).and()
+				.defaultSuccessUrl("/home")
+				.permitAll().and()
+				.rememberMe().key(rememberMeKey).rememberMeServices(rememberMeServices()).and()
+
 		.logout()
 			.permitAll();				
 	}	
