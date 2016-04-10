@@ -8,4 +8,5 @@ This is a practice project for the following technologies, although I do intend 
 - JPA
 - Spring Boot
 - Bootstrap
+- Thymeleaf
 
